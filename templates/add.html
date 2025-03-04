@@ -4,18 +4,25 @@
 
 {% block main %}
 
-    <form action="/search_diary" method="post">
+<div class="d-flex justify-content-center align-items-center" style="height: 40vh;">
+    <div class="card shadow-lg p-4 border-0"
+        style="width: 40rem; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);">
+        <div class="card-body">
 
-        <label>Enter a keyword for the food product you want to <span class="text-success">add</span></span> to your food diary:</label></br>
+            <form action="/search_diary" method="post">
 
-        <p class="text-secondary">(for example milk, no matter what kind of milk)</p>
+                <label>Enter a keyword for the food product you want to <span class="text-success">add</span></span> to
+                    your
+                    food diary:</label></br>
 
-        <input autocomplete="off" autofocus name="query" placeholder="Milk" type="text">
+                <p class="text-secondary">(for example milk, no matter what kind of milk)</p>
 
-        <input type="submit" value="Search for all variations of this food" class="btn btn-success">
+                <input autocomplete="off" autofocus name="query" placeholder="Milk" type="text">
 
-    </form>
+                <input type="submit" value="Search for all variations of this food" class="btn btn-success">
 
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
-
-

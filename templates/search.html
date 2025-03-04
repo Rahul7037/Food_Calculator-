@@ -1,30 +1,54 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Refined search
+Refined search
 {% endblock %}
 
 {% block main %}
-    <p>The keyword you chose: <span class="text-success "> {{ product }} </span></p>
+<div class="d-flex justify-content-center align-items-center" style="height: 40vh;">
+    <div class="card shadow-lg p-4 border-0"
+        style="width: 90%; max-width: 40rem; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);">
+        <div class="card-body">
+            <p>The keyword you chose: <span class="text-success "> {{ product }} </span></p>
 
-    <p>Select a product from the dropdown list below:</p>
+            <p>Select a product from the dropdown list below:</p>
 
-    <!--the form offers a selection of products that start with a keyword-->
-    <form action="\nutritions" method="post">
+            <!--the form offers a selection of products that start with a keyword-->
+            <form action="/nutritions" method="post">
 
-        <select autofocus name="check" class="form-select">
+                <select autofocus name="check" class="form-select" style="width: 100%; max-width: 100%;">
+                    <option disabled selected>Select food product</option>
 
-        <option disabled selected>Select food product</option>
+                    {% for fo in food_arr %}
+                    <option>{{ fo }}</option>
+                    {%endfor%}
 
-        {% for fo in food_arr %}
-            <option >{{ fo }}</option>
-        {%endfor%}
+                </select>
 
-        </select>
+                <button type="submit" class="btn btn-success mt-2 w-100">Go!</button>
 
-        <button type="submit" class="btn btn-success">Go!</button>
+            </form>
 
-    </form>
+        </div>
+    </div>
+</div>
+
+<!-- CSS Fix -->
+<style>
+    form select {
+        max-width: 100%;
+        /* Ensure dropdown stays within container */
+        width: 100%;
+        /* Make it full width */
+        overflow-x: hidden;
+        /* Prevent horizontal overflow */
+    }
+
+    .card {
+        width: 90%;
+        /* Ensure responsiveness */
+        max-width: 40rem;
+    }
+</style>
 
 {% endblock %}
-

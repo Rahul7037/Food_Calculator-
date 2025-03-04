@@ -54,8 +54,7 @@ db = SQL("sqlite:///nutritions.db")
 def index():
         # route index() renders the page with the form that the search() is processing
         return render_template("index.html")
-
-
+  
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
@@ -169,7 +168,7 @@ def register():
         # Remember which user has regested
         session["user_id"] = rows1[0]["id"]
 
-        flash("You are registed!")
+        flash("You are registered!")
 
         return redirect("/")
 
@@ -204,6 +203,8 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
+        flash("You are Logged In!")
+
         # Redirect user to home page
         return redirect("/")
 
@@ -219,6 +220,8 @@ def logout():
 
     # Forget any user_id
     session.clear()
+
+    flash("You are Logged Out!")
 
     # Redirect user to login form
     return redirect("/")
